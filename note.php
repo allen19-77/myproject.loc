@@ -31,6 +31,7 @@ if (!$dbh) {
 				'message' => $message,
 			]);
 			echo 'Ваш пост сохранен';
+            include_once 'all-posts.php';
 		}
 	}
 }
