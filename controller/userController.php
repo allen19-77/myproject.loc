@@ -19,13 +19,13 @@ else {
     if(strlen($password) < 6) {
         alert('Пароль должен быть минимум 6 символов');
         //echo 'Привет 6 символов';
-        include_once 'index.php';
+        include_once __DIR__ . '/../view/registation.php';
     }
     else {
         if($password !== $password2) {
             alert('Пароли не совпадают, пожалуйста заполните форму еще раз');
            // echo 'Пароли не совпали';
-            include_once 'index.php';
+            include_once __DIR__ . '/../view/registation.php';
         }
         else {
             if ($age < 18) {

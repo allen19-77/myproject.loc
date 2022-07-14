@@ -8,7 +8,7 @@
 </head>
 
 <body>
-<form action="../controller/action.php" method="post">
+<form action="../controller/userController.php" method="post">
     <label>Логин</label>
     <input type="text" name="login" placeholder="Введите свой логин">
     <label>Пароль</label>
