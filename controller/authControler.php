@@ -28,11 +28,11 @@ if(empty($rows))
 
 if (count($rows) === 0) {
     echo 'Данный аккаунт не зарегистрирован';
-    include ('auth.php');
+    include('auth.php');
 } else {
     if($password !== $rows[0]['password']) {
         echo 'Неправильный пароль';
-        include ('note.html');
+        include('note.php');
     } else {
         echo 'Добро пожаловать';
     }

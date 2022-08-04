@@ -43,7 +43,7 @@ else {
                     'gender' => $gender,
                 ]);
                 alert('Вы успешно зарегились');
-                include('../note.html');
+                include('../note.php');
             }
         }
     }

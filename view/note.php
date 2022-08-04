@@ -3,12 +3,12 @@
 
 <head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="../style.css">
 	<title>note</title>
 </head>
 
 <body>
-	<form name="form" action="note.php" method="post" >
+	<form name="form" action="../controller/note.php" method="post" >
 		<h2>Заметки</h2>
 
 		<p>
