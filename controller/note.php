@@ -31,7 +31,7 @@ if (!$dbh) {
 				'message' => $message,
 			]);
 			echo 'Ваш пост сохранен';
-            include_once 'all-posts.php';
+            include_once __DIR__ . '/../all-posts.php';
 		}
 	}
 }

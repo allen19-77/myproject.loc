@@ -43,7 +43,7 @@ else {
                     'gender' => $gender,
                 ]);
                 alert('Вы успешно зарегились');
-                include('../note.php');
+                include_once __DIR__ . '/../view/note.php';
             }
         }
     }
