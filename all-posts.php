@@ -1,13 +1,14 @@
 <?php
+require __DIR__ . '/../model/Database.php';
 
-$pdo = new PDO('mysql:host=localhost;dbname=test', 'root', 'root');
+$db = new \model\Database();
 
 $heading = $_POST['heading'];
 $message = $_POST['message'];
 
 
 $sql = 'SELECT * from posts ';
-$stmt = $pdo->query($sql);
+$stmt = $db->dbh->query($sql);
 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 echo '<pre>';

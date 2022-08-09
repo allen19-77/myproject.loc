@@ -1,19 +1,19 @@
 <?php
 
-
+require __DIR__ . '/../model/Database.php';
 function alert($msg)
 {
     echo "<script type='text/javascript'>alert('$msg');</script>";
 }
 
-$pdo = new PDO('mysql:host=localhost;dbname=test', 'root', 'root');
+$db = new \model\Database();
 
 $login = $_POST['login'];
 $password = $_POST['password'];
 
 //выбираем логин
 $sql = 'SELECT login, password from users WHERE login = :name';
-$stmt = $pdo->prepare($sql);
+$stmt = $db->dbh->prepare($sql);
 $stmt->execute([':name' => $login]);
 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 

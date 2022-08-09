@@ -1,22 +1,24 @@
 <?php
+require __DIR__ . '/../model/Database.php';
+
+$db = new \model\Database();
 
 
-$dbh = new PDO('mysql:host=localhost;dbname=test', 'root', 'root');
-
-if (!$dbh) {
+if (!$db->dbh) {
 	echo 'Что то пошло не так!';
 } else {
 	$heading = $_POST['heading'];
 	$message = $_POST['message'];
+	$headingLength = mb_strlen($heading);
+	$messageLength = mb_strlen($message);
 
-
-	if (mb_strlen($heading) < 2 || mb_strlen($heading) > 20) {
+	if ($headingLength < 2 || $headingLength > 20) {
 
 		echo 'Заголовок должен иметь не меньше 2 символов и не меньше 20 символов';
 		include_once 'index.html';
 
 	} else {
-		if (mb_strlen($message) < 10 || mb_strlen($message) > 250) {
+		if ($messageLength < 10 || $messageLength > 250) {
 
 			echo 'Текст должен иметь не меньше 10 символов и не меньше 250 символов';
 			include_once 'index.html';
@@ -25,7 +27,7 @@ if (!$dbh) {
 
 		    $sql = 'INSERT INTO posts (id, heading, message) 
             VALUES (NULL, :heading, :message)';
-			$stmt = $dbh->prepare($sql);
+			$stmt = $db->dbh->prepare($sql);
 			$result = $stmt->execute([
 				'heading' => $heading,
 				'message' => $message,
