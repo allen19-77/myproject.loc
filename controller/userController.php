@@ -9,7 +9,9 @@ function isAgeValid($age)
     }
 }
 
+
 require __DIR__ . '/../model/Database.php';
+require __DIR__ . '/../model/User.php';
 function alert($msg) {
     echo "<script type='text/javascript'>alert('$msg');</script>";
 }
@@ -20,22 +22,11 @@ if (!$db->dbh) {
     echo 'Что то пошло не так!';
 }
 else {
-    $userOne = new User();
-    $userTwo = new User();
+    $userOne = new User( $_POST['login'], $_POST['password'], $_POST['password2'], $_POST['name'], $_POST['age'], $_POST['gender']);
+    $userTwo = new User($_POST['login2'], $_POST['password12'], $_POST['password22'], $_POST['name2'], $_POST['age2'], $_POST['gender2']);
 
-    $userOne->login = $_POST['login'];
-    $userOne->password = $_POST['password'];
-    $userOne->confirmPassword = $_POST['password2'];
-    $userOne->name = $_POST['name'];
-    $userOne->age = $_POST['age'];
-    $userOne->gender = $_POST['gender'];
 
-    $userTwo->login = $_POST['login2'];
-    $userTwo->password = $_POST['password12'];
-    $userTwo->confirmPassword = $_POST['password22'];
-    $userTwo->name = $_POST['name2'];
-    $userTwo->age = $_POST['age2'];
-    $userTwo->gender = $_POST['gender2'];
+
 
     //todo: Ахтунг, дублирует форму
     if (strlen($password) < 6) {
