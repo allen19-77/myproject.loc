@@ -17,14 +17,38 @@ class User {
         $this->age = $age;
         $this->gender = $gender;
     }
-    /*public function __construct($login, $password, $confirmPassword, $name, $age, $gender)
+
+    public function isAgeValid()
     {
-        $this->login = $login;
-        $this->password = $password;
-        $this->confirmPassword = $confirmPassword;
-        $this->name = $name;
-        $this->age = $age;
-        $this->gender = $gender;
-    }*/
+        if ($this->age < 18) {
+            alert('Сюда нельзя!');
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+
+    public function isPasswordValid()
+    {
+        if (strlen($this->password) < 6) {
+            alert('Пароль  должен быть минимум 6 символов');
+            return false;
+            //include_once __DIR__ . '/../view/registation.php';
+        } else {
+            return true;
+        }
+    }
+
+    public function isConfirmPasswordValid()
+    {
+        if ($this->password !== $this->confirmPassword) {
+            alert('Пароли  не совпадают, пожалуйста заполните форму еще раз');
+            // include_once __DIR__ . '/../view/registation.php';
+            return false;
+        } else {
+            return true;
+        }
+    }
 
 }
