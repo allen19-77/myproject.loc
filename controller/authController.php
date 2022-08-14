@@ -32,7 +32,7 @@ if (count($rows) === 0) {
 } else {
     if($password !== $rows[0]['password']) {
         echo 'Неправильный пароль';
-        include('note.php');
+        include('noteController.php');
     } else {
         echo 'Добро пожаловать';
     }

@@ -1,10 +1,12 @@
 <?php
-require __DIR__ . '/../model/Database.php';
+
+require __DIR__ . './model/Database.php';
+require __DIR__ . './model/Post.php';
 
 $db = new \model\Database();
 
-$heading = $_POST['heading'];
-$message = $_POST['message'];
+$postOne = new Post($_POST['heading'],$_POST['message']);
+
 
 
 $sql = 'SELECT * from posts ';

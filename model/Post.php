@@ -1,6 +1,6 @@
 <?php
 
-require __DIR__ . '/../model/Post.php';
+
 
 class Post {
     public $heading;

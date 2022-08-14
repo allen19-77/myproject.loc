@@ -8,7 +8,7 @@
 </head>
 
 <body>
-	<form name="form" action="../controller/note.php" method="post" >
+	<form name="form" action="../controller/noteController.php" method="post" >
 		<h2>Заметки</h2>
 
 		<p>

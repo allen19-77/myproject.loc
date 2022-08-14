@@ -9,7 +9,7 @@
 </head>
 
 <body>
-	<form action="../controller/authControler.php" method="post">
+	<form action="../controller/authController.php" method="post">
 		<label>Логин</label>
 		<input type="text" name="login" placeholder="Введите свой логин">
 		<label>Пароль</label>

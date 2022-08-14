@@ -1,9 +1,9 @@
 <?php
 require __DIR__ . '/../model/Database.php';
+require __DIR__ . '/../model/Post.php';
 
 $db = new \model\Database();
 
-$postOne = new Post($_POST['heading'], $_POST['message']);
 
 if (!$db->dbh) {
 	echo 'Что то пошло не так!';
@@ -15,7 +15,7 @@ if (!$db->dbh) {
 	if ($headingLength < 2 || $headingLength > 20) {
 
 		echo 'Заголовок должен иметь не меньше 2 символов и не меньше 20 символов';
-		include_once 'index.html';
+		include_once '/../view/noteController.php';
 
 	} else {
 		if ($messageLength < 10 || $messageLength > 250) {
