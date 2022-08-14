@@ -33,8 +33,9 @@ class User {
     {
         if (strlen($this->password) < 6) {
             alert('Пароль  должен быть минимум 6 символов');
+            include_once __DIR__ . '/../view/registation.php';
             return false;
-            //include_once __DIR__ . '/../view/registation.php';
+
         } else {
             return true;
         }
@@ -44,7 +45,7 @@ class User {
     {
         if ($this->password !== $this->confirmPassword) {
             alert('Пароли  не совпадают, пожалуйста заполните форму еще раз');
-            // include_once __DIR__ . '/../view/registation.php';
+            include_once __DIR__ . '/../view/registation.php';
             return false;
         } else {
             return true;

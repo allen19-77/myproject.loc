@@ -1,5 +1,5 @@
 <?php
-function isAgeValid($age)
+/*function isAgeValid($age)
 {
     if ($age < 18 ) {
         alert('Сюда нельзя!');
@@ -7,7 +7,7 @@ function isAgeValid($age)
     } else {
         return true;
     }
-}
+}*/
 
 
 require __DIR__ . '/../model/Database.php';

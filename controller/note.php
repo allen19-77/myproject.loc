@@ -3,14 +3,14 @@ require __DIR__ . '/../model/Database.php';
 
 $db = new \model\Database();
 
+$postOne = new Post($_POST['heading'], $_POST['message']);
 
 if (!$db->dbh) {
 	echo 'Что то пошло не так!';
 } else {
-	$heading = $_POST['heading'];
-	$message = $_POST['message'];
-	$headingLength = mb_strlen($heading);
-	$messageLength = mb_strlen($message);
+    $postOne = new Post($_POST['heading'], $_POST['message']);
+	$headingLength = mb_strlen($postOne->heading);
+	$messageLength = mb_strlen($postOne->message);
 
 	if ($headingLength < 2 || $headingLength > 20) {
 
@@ -29,8 +29,8 @@ if (!$db->dbh) {
             VALUES (NULL, :heading, :message)';
 			$stmt = $db->dbh->prepare($sql);
 			$result = $stmt->execute([
-				'heading' => $heading,
-				'message' => $message,
+				'heading' => $postOne->heading,
+				'message' => $postOne->message,
 			]);
 			echo 'Ваш пост сохранен';
             include_once __DIR__ . '/../all-posts.php';
