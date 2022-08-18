@@ -34,22 +34,24 @@ else {
         }
         include_once __DIR__ . '/../view/registation.php';
     } else {
-
+        $sql = 'INSERT INTO users (id, login, password, name, age, gender) 
+            VALUES (NULL, :login, :password, :name, :age, :gender)';
+        $stmt = $db->dbh->prepare($sql);
+        $result = $stmt->execute([
+            'login' =>$userOne->login,
+            'name' =>$userOne->name,
+            'password' =>$userOne->password,
+            'age' =>$userOne->age,
+            'gender' =>$userOne->gender,
+        ]);
+       echo 'Вы успешно зарегились';
+        include_once __DIR__ . '/../view/note.php';
     }
 
 //todo: Ахтунг, сохранять пытается в любом случае
-    $sql = 'INSERT INTO users (id, login, password, name, age, gender) 
-            VALUES (NULL, :login, :password, :name, :age, :gender)';
-    $stmt = $db->dbh->prepare($sql);
-    $result = $stmt->execute([
-        'login' =>$userOne->login,
-        'name' =>$userOne->name,
-        'password' =>$userOne->password,
-        'age' =>$userOne->age,
-        'gender' =>$userOne->gender,
-    ]);
+    /*
 
-    /*$sql = 'INSERT INTO users (id, login, password, name, age, gender)
+    $sql = 'INSERT INTO users (id, login, password, name, age, gender)
             VALUES (NULL, :login, :password, :name, :age, :gender)';
     $stmt = $db->dbh->prepare($sql);
     $result = $stmt->execute([
@@ -59,8 +61,7 @@ else {
         'age' =>$userTwo->age,
         'gender' =>$userTwo->gender,
     ]);*/
-    alert('Вы успешно зарегились');
-    include_once __DIR__ . '/../view/note.php';
+
 }
 
 
