@@ -22,7 +22,7 @@ class User {
     public function isAgeValid()
     {
         if ($this->age < 18) {
-            alert('Сюда нельзя!');
+            $this->errors[] = 'Сюда нельзя!';
             return false;
         } else {
             return true;

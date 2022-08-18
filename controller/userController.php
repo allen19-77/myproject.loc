@@ -28,7 +28,12 @@ else {
     $userOne->isAgeValid();
     $userTwo->isAgeValid();
 
-var_dump($userTwo->errors, $userOne->errors);
+    if (!empty($userOne->errors)) {
+        foreach ($userOne->errors as $error) {
+            echo $error . "<br>\r\n";
+        }
+
+    }
 
 //todo: Ахтунг, сохранять пытается в любом случае
     $sql = 'INSERT INTO users (id, login, password, name, age, gender) 
