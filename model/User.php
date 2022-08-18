@@ -7,6 +7,7 @@ class User {
     public $name;
     public $age;
     public $gender;
+    public $errors = [];
 
     public function __construct($login, $password, $confirmPassword,$name, $age, $gender)
     {
@@ -32,8 +33,7 @@ class User {
     public function isPasswordValid()
     {
         if (strlen($this->password) < 6) {
-            alert('Пароль  должен быть минимум 6 символов');
-            include_once __DIR__ . '/../view/registation.php';
+            $this->errors[] = 'Пароль  должен быть минимум 6 символов';
             return false;
 
         } else {
@@ -44,9 +44,8 @@ class User {
     public function isConfirmPasswordValid()
     {
         if ($this->password !== $this->confirmPassword) {
-            alert('Пароли  не совпадают, пожалуйста заполните форму еще раз');
-            include_once __DIR__ . '/../view/registation.php';
-            return false;
+           $this->errors[] = 'Пароли  не совпадают, пожалуйста заполните форму еще раз';
+           return false;
         } else {
             return true;
         }
