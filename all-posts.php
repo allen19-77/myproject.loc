@@ -1,7 +1,7 @@
 <?php
 
-require __DIR__ . './model/Database.php';
-require __DIR__ . './model/Post.php';
+require_once __DIR__ . './model/Database.php';
+require_once __DIR__ . './model/Post.php';
 
 $db = new \model\Database();
 

@@ -1,6 +1,6 @@
 <?php
-require __DIR__ . '/../model/Database.php';
-require __DIR__ . '/../model/Post.php';
+require_once __DIR__ . '/../model/Database.php';
+require_once __DIR__ . '/../model/Post.php';
 
 $db = new \model\Database();
 
@@ -15,13 +15,13 @@ if (!$db->dbh) {
 	if ($headingLength < 2 || $headingLength > 20) {
 
 		echo 'Заголовок должен иметь не меньше 2 символов и не меньше 20 символов';
-		include_once '/../view/noteController.php';
+		include_once '../view/note.php';
 
 	} else {
 		if ($messageLength < 10 || $messageLength > 250) {
 
 			echo 'Текст должен иметь не меньше 10 символов и не меньше 250 символов';
-			include_once 'index.html';
+			include_once '../view/note.php';
 
 		} else {
 
