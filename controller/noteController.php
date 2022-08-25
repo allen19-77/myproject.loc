@@ -16,11 +16,11 @@ if (!$db->dbh) {
 
 	if (!empty($postOne->errors))
 	{
-        foreach ($userOne->errors as $error)
+        foreach ($postOne->errors as $error)
         {
             echo $error . "<br>\r\n";
         }
-        include_once __DIR__ . '../view/note.php';
+        include_once __DIR__ . '/../view/note.php';
     } else
     {
         $sql = 'INSERT INTO posts (id, heading, message)
